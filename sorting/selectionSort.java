@@ -1,44 +1,44 @@
 package sorting;
-//in that we can do one swap as per one itration we can select the smaller element and swap
 
-// time complexity  =   O(n^2);
+// Implementation of Selection Sort
+// In each iteration, we find the smallest element in the unsorted part of the array
+// and swap it with the first element of the unsorted part.
 
+// Time Complexity: O(n^2) (due to nested loops)
+// Space Complexity: O(1) (in-place sorting)
 
 public class selectionSort {
 
-    public static void main(String [] args){
+    public static void main(String[] args) {
 
-        int arr [] = {4,2,9,2,5,7,2,2};
+        // Input array
+        int arr[] = {4, 2, 9, 2, 5, 7, 2, 2};
 
-        for(int i = 0 ; i < arr.length-1;i++ ){
+        // Outer loop for traversing the array
+        // After each iteration, one element is sorted in its correct position
+        for (int i = 0; i < arr.length - 1; i++) {
 
-            int smallerIndex = i ; 
+            // Assume the current index has the smallest element
+            int smallerIndex = i;
 
-            for(int j = i+1 ; j < arr.length; j++ ){
+            // Inner loop to find the smallest element in the unsorted part of the array
+            for (int j = i + 1; j < arr.length; j++) {
 
+                // If a smaller element is found, update the smallerIndex
                 if (arr[smallerIndex] > arr[j]) {
-                   
-                    //we got a smaller index
-                    smallerIndex = j ; 
-
+                    smallerIndex = j;
                 }
-                
             }
 
-            //now swap
-             int temp = arr[smallerIndex];
-             arr[smallerIndex] = arr[i];
-             arr[i] = temp;
-
+            // Swap the smallest element with the first element of the unsorted part
+            int temp = arr[smallerIndex];
+            arr[smallerIndex] = arr[i];
+            arr[i] = temp;
         }
 
-
-        for(int i = 0  ; i  < arr.length ; i++){
-
+        // Print the sorted array
+        for (int i = 0; i < arr.length; i++) {
             System.out.println(arr[i]);
         }
-
-
     }
-    
 }

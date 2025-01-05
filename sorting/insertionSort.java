@@ -1,54 +1,57 @@
 package sorting;
 
-// in that we can make to partation one is sorted array and one is unsorted array and take element and placed in sorted array 
+// In this implementation, we divide the array into a sorted and an unsorted part. 
+// We take elements from the unsorted part and place them in the correct position in the sorted part.
 
 public class insertionSort {
-    
+
     public static void main(String[] args) {
-      
-        // for(int i = 1 ; i < arr.length; i++){   
 
-        //     int current = arr[i];
+        int arr[] = {12, 5, 7, 9, 3, 8, 3};
 
-        //     int j = i-1;
+        // Insertion sort logic
+        // for (int i = 1; i < arr.length; i++) {
 
-        //     while (j >= 0 && current < arr[j] ) {
-                
-        //         arr[j+1] = arr[j];
-        //         j--;
+        //     int current = arr[i]; // Element to be placed in the sorted part
+
+        //     int j = i - 1; // Index of the last element in the sorted part
+
+        //     // Shift elements of the sorted part to the right to make room for the current element
+        //     while (j >= 0 && current < arr[j]) {
+
+        //         arr[j + 1] = arr[j];
+        //         j--; // Move backward
 
         //     }
 
-        //     arr[j+1] = current;
+        //     // Place the current element in the correct position
+        //     arr[j + 1] = current;
         // }
 
 
-                      //  j    i
-            int arr [] = {12 , 5  , 7 , 9 , 3 , 8, 3 };
-                      //       c
 
         for(int i = 1 ; i < arr.length; i++){
 
             int current = arr[i];
-    
-             int j = i - 1 ;
 
-             while (j >= 0 && current < j ) {
-                
-                 arr[j] = arr[j+1];
-                
-             }
+            int j = i - 1 ;
 
-              
+            while (j >= 0 && arr[j] > current ) {
+
+                arr[j+1]  = arr[j];
+                j--;
+                
+            }
+
+            arr[j+1] = current; 
+
 
         }
 
-        
-        for(int i  = 0 ; i < arr.length; i++ ){
 
-            System.out.println(arr[i]);
-
+        // Print the sorted array
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
-
     }
 }
